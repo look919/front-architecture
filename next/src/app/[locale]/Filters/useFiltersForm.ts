@@ -66,10 +66,17 @@ export const useFiltersForm = () => {
     }
   }
 
+  const handleResetForm = () => {
+    form.helpers.reset()
+
+    router.push('/')
+  }
+
   return {
     form,
     submitForm,
     handleChangeColor,
     handleToggleChip,
+    handleResetForm,
   }
 }

@@ -6,7 +6,8 @@
       "producer": "Producer",
       "minPrice": "Min price",
       "maxPrice": "Max price",
-      "setFilters": "Set filters"
+      "setFilters": "Set filters",
+      "clearFilters": "Clear filters"
     },
     "DashboardProduct": {
       "alt": "Product image"

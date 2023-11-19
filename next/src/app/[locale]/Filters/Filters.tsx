@@ -16,6 +16,7 @@ export const Filters = ({ colors }: Props) => {
     minPrice: t('Filters.minPrice'),
     maxPrice: t('Filters.maxPrice'),
     setFilters: t('Filters.setFilters'),
+    clearFilters: t('Filters.clearFilters'),
   }
 
   return (

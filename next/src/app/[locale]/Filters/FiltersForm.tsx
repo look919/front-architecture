@@ -16,7 +16,8 @@ type FiltersFormProps = {
 }
 
 export const FiltersForm = ({ colors, translations }: FiltersFormProps) => {
-  const { form, handleToggleChip, submitForm, handleChangeColor } = useFiltersForm()
+  const { form, handleToggleChip, submitForm, handleResetForm, handleChangeColor } =
+    useFiltersForm()
 
   return (
     <form className="mt-4 flex flex-col" onSubmit={form.handleSubmit(submitForm)}>
@@ -73,6 +74,9 @@ export const FiltersForm = ({ colors, translations }: FiltersFormProps) => {
       </div>
       <Button type="submit" className="mt-8">
         {translations.setFilters}
+      </Button>
+      <Button variant="destructive" onClick={handleResetForm} className="mt-2 w-full">
+        {translations.clearFilters}
       </Button>
     </form>
   )
