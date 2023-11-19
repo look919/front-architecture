@@ -1,0 +1,12 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "i18n-ally.localesPaths": ["src/locales"],
+  "i18n-ally.sourceLanguage": "pl",
+  "i18n-ally.keystyle": "nested",
+  "files.associations": {
+    "*.tsx": "typescriptreact",
+    "*.ts": "typescriptreact"
+  }
+}
