@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 
 import { getImagePath } from '~utils/getImagePath'
 
@@ -11,6 +12,7 @@ type ProductImageProps = {
 }
 
 export const ProductImage = ({ leadImage, ...props }: ProductImageProps) => {
+  const t = useTranslations('HomePage')
   const src = getImagePath(leadImage)
 
   return (
@@ -18,7 +20,7 @@ export const ProductImage = ({ leadImage, ...props }: ProductImageProps) => {
       <Image
         src={src}
         className="z-10 aspect-[4/3] h-auto w-60 overflow-visible brightness-75"
-        alt="product photo"
+        alt={t('DashboardProduct.alt')}
         priority
         {...props}
       />

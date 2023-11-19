@@ -1,6 +1,8 @@
 import { db } from '~lib/db'
+import { isDefined } from '~utils/valueChecks'
 
 import { DashboardProduct } from './DashboardProduct'
+import { Filters } from './Filters'
 
 type HomePageProps = {
   searchParams: {
@@ -11,6 +13,14 @@ type HomePageProps = {
     maxPrice: string
     colors: string[]
   }
+}
+
+const getItemsArrayConditions = (dimensions?: string[]) => {
+  if (!isDefined(dimensions)) {
+    return undefined
+  }
+
+  return Array.isArray(dimensions) ? dimensions : [dimensions]
 }
 
 export default async function HomePage({ searchParams }: HomePageProps) {
@@ -32,7 +42,7 @@ export default async function HomePage({ searchParams }: HomePageProps) {
       dimensions: {
         some: {
           value: {
-            in: searchParams.dimensions,
+            in: getItemsArrayConditions(searchParams.dimensions),
           },
         },
       },
@@ -43,18 +53,18 @@ export default async function HomePage({ searchParams }: HomePageProps) {
       colors: {
         some: {
           id: {
-            in: searchParams.colors,
+            in: getItemsArrayConditions(searchParams.colors),
           },
         },
       },
     },
   })
 
-  // const colors = await db.color.findMany();
+  const colors = await db.color.findMany()
 
   return (
     <main className="flex">
-      {/* <Filters colors={colors} /> */}
+      <Filters colors={colors} />
       <section className="grid w-full grid-cols-[repeat(auto-fit,_minmax(20rem,_1fr))] justify-items-center gap-8 px-4">
         {products.map((product) => (
           <DashboardProduct product={product} key={product.name} />
