@@ -51,6 +51,7 @@ module.exports = {
         aspects: ['noHref', 'invalidHref', 'preferButton'],
       },
     ],
+    'arrow-body-style': 0,
   },
   overrides: [
     {

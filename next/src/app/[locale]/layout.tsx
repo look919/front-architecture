@@ -28,9 +28,15 @@ export default function RootLayout({ children, params: { locale } }: RootLayoutP
         <Toaster position="top-center" reverseOrder={false} />
         <header className="mb-8 flex justify-between p-6">
           <Link href="/">
-            <Image src="/logo.png" width={120} height={80} alt="ShopTom logo" />
+            <Image
+              src="/images/logo.png"
+              width={120}
+              height={80}
+              alt="ShopTom logo"
+              className="w-30 h-20"
+            />
           </Link>
-          <div className="flex mt-2 mr-2 gap-6">
+          <div className="mr-2 mt-2 flex gap-6">
             {/* <LanguageSelect /> */}
             <Icons.Search className="h-6 w-6" />
             <Link href="/cart">
